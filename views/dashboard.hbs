@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class=welcome>Welcome to FitBit</div>
+    
+<div class="details_class">
+<form  name=details role="form" autocomplete="off" method="post" >
+<fieldset>
+<legend>Personal Details</legend>
+
+<div class="details-group">
+<label for="name">Height</label>
+<input type="number" name="height" placeholder="Enter height in cms" class="form-control" />
+<span class="text-danger"></span>
+</div>
+
+<div class="details-group">
+<label for="name">Weight</label>
+<input type="number" name="weight" placeholder="Enter weight in kg"  class="form-control" />
+<span class="text-danger"></span>
+</div>
+
+<div class="details-group">
+<label for="name">Date Of Birth</label>
+<input type="date" name="dob" required placeholder="yyyy-mm-dd" class="form-control" />
+<span class="text-danger"></span>
+</div>
+<div class="details-group">
+<label for="name">Address</label>
+<input type="text" name="address" placeholder="Enter your Address" class="form-control" />
+<span class="text-danger"></span>
+</div>
+<div class="details-group">
+<label for="name">Workplace</label>
+<input type="text" name="workplace" placeholder="Enter work place" class="form-control" />
+<span class="text-danger"></span>
+</div>
+<div class="details-group">
+<label for="name">Designation</label>
+<input type="text" name="desg" placeholder="Enter your designation" class="form-control" />
+<span class="text-danger"></span>
+</div>
+
+<div class="details-group">
+<input type="submit" name="updated" value="Update" class="btn btn-primary" />
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>

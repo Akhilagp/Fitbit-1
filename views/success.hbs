@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+</style>
+</head>
+<body>
+<div class=welcome>Welcome to FitBit</div>
+<p>Name : {{item.name}}</p><br>
+<p>Date of birth : {{item.date_of_birth}}</p><br>
+<p>Address : {{item.address}}</p><br>
+<p>Height : {{item.height}}</p><br>
+<p>Weight : {{item.weight}}</p></br>
+<p>Designation : {{item.designation}}</p><br>
+<p>Workplace : {{item.workplace}}</p><br>
+<!--<input type=submit value=update name=update />-->
+<center><a href='/dashboard'>Update my bio</a></center><br>
+<center><a href='/logout'>Logout</a></center><br>
+<center><div class="popup" onclick="myFunction()">View my bmi
+  <span class="popuptext" id="myPopup">Your bmi is {{bmi.bmi_val}}<br>You are {{bmi.bmi_value}}<br></span>
+</div></center><br>
+
+<center><div class="popup" onclick="myFunc()">View nutritionists
+  <span class="popuptext" id="myPop">
+<table>
+<tr>
+<th>Nutritionist ID</th>
+<th>Nutritionist</th>
+<th>Score</th>
+</tr>
+{{#each rslt}}
+<tr>
+<td>{{this.n_id}}</td><td>  {{this.name}}</td><td>{{this.score}}</td>
+</tr>
+{{/each}}
+</table>
+</span>
+</div></center><br>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+
+function myFunc() {
+    var popup = document.getElementById("myPop");
+    popup.classList.toggle("show");
+}
+</script>
+<center><a href='{{cht.chart}}' target='_blank'>View diet chart</a></center><br>
+<center><a href='/end'>End program</a></center>
+</body>
+</html>           

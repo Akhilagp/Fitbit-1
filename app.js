@@ -2,13 +2,22 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var uuid = require('uuid/v1');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+
+//functions
+function genuuid(){
+	return uuid();
+}
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,8 +28,14 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+	app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+	genid : function(req){
+		return genuuid();
+	},secret : 'problem solved',
+	resave : true
+}));
 
 app.use('/', index);
 app.use('/users', users);
