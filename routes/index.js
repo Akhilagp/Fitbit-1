@@ -7,7 +7,7 @@ var loginto = require('../modules/loginto');
 var connection = mysql.createConnection({
 host:"localhost",
 user:"root",
-password:"joker@23599",
+password:"",
 database:"fit"
 });
 
